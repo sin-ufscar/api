@@ -1,2 +1,2 @@
 # api
-API RESTful comum a softwares da UFSCar
+API RESTful comum a softwares da UFSCar (não oficial).
