@@ -4,16 +4,15 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.SEQUENCE;
-
 @Entity
 @Table(name = "usuario", schema = "autenticacao")
 @Data
+
+//TODO: Verificar como fazer testes utilizando a anotação SpringBootTest
+//TODO: Ler do LDAP (https://github.com/spring-projects/spring-ldap/blob/master/samples/plain/src/main/java/org/springframework/ldap/samples/plain/dao/PersonDaoImpl.java)
 public class Usuario {
 
-    Usuario() {
-
-    }
+    Usuario() {}
 
     public Usuario(String username, String password) {
         this.username = username;
