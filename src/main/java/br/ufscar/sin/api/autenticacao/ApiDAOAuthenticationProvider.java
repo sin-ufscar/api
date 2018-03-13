@@ -1,4 +1,4 @@
-package br.ufscar.sin.api.config;
+package br.ufscar.sin.api.autenticacao;
 
 import br.ufscar.sin.api.autenticacao.ApiUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;

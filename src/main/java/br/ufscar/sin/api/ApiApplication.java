@@ -1,11 +1,9 @@
 package br.ufscar.sin.api;
 
-import br.ufscar.sin.api.autenticacao.ApiUserDetailService;
 import br.ufscar.sin.api.autenticacao.Usuario;
 import br.ufscar.sin.api.autenticacao.UsuarioRepository;
-import br.ufscar.sin.api.config.ApiDAOAuthenticationProvider;
+import br.ufscar.sin.api.autenticacao.ApiDAOAuthenticationProvider;
 import org.hibernate.exception.ConstraintViolationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

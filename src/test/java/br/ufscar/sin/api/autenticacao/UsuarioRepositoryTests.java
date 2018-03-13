@@ -5,17 +5,18 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+//@AutoConfigureTestEntityManager
 /**
  * Testes referentes ao UsuarioRepository
  */
@@ -34,7 +35,7 @@ public class UsuarioRepositoryTests {
     @DisplayName(value = "Quando busca um usuário existente na base pelo username, retorna o usuário cadastrado")
     public void whenFindByUsername_thenReturnUser() {
         // given
-        Usuario usuarioBruno = new Usuario("Bruno", "1234");
+        Usuario usuarioBruno = new Usuario("BrunoPPP", "1234");
         entityManager.persist(usuarioBruno);
         entityManager.flush();
 
