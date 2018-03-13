@@ -54,7 +54,7 @@ public class UsuarioRepositorySpringBootTests {
                 .isEqualTo(encontrado.getUsername());
 
         //cleanup
-//        usuarioRepository.delete(usuarioBruno);
+        usuarioRepository.delete(usuarioBruno);
     }
 
 }
