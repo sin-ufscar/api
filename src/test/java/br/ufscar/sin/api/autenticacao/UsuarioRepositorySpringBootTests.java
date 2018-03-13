@@ -47,8 +47,8 @@ public class UsuarioRepositorySpringBootTests {
         assertThat(encontrado.getUsername())
                 .isEqualTo(encontrado.getUsername());
 
-        //cleanup
-        usuarioRepository.delete(usuarioBruno);
+        //cleanup Não é necessário devido o @Transacional
+//        usuarioRepository.delete(usuarioBruno);
     }
 
 }
