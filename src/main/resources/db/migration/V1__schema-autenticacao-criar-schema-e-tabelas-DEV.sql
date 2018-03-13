@@ -23,3 +23,14 @@ ALTER TABLE autenticacao.usuario OWNER TO postgres;
 
 --Dar permissões para usuário postgres
 GRANT ALL ON TABLE autenticacao.usuario TO postgres;
+
+--CREATE SEQUENCE autenticacao.usuario_id_seq
+--  INCREMENT 1
+--  MINVALUE 1
+--  MAXVALUE 9223372036854775807
+--  START 1
+--  CACHE 1;
+--
+--ALTER SEQUENCE autenticacao.usuario_id_seq
+--  OWNER TO postgres;
+--GRANT ALL ON SEQUENCE autenticacao.usuario_id_seq TO postgres;
