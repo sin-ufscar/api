@@ -45,7 +45,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/usuario").hasRole("USUARIO")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().successHandler(authenticationSuccessHandler).and()
                 // filtra requisições de login
                 .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()),
                         UsernamePasswordAuthenticationFilter.class)
