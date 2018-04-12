@@ -1,8 +1,6 @@
 package br.ufscar.sin.api.autenticacao;
 
 
-import br.ufscar.sin.api.autenticacao.JWTAuthenticationFilter;
-import br.ufscar.sin.api.autenticacao.JWTLoginFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -44,7 +42,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 // filtra requisições de login
-                .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()),
+                .addFilterBefore(new JWTLoginFilter("/api/login", authenticationManager()),
                         UsernamePasswordAuthenticationFilter.class)
 
 

@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+//TODO: Permitir que a obtenção das permissões seja feita de diversos modos (BD, LDAP, REDIS, etc)
+/**
+ * Classe repossável por verificar quais as permissĩoes que o usuário possui
+ */
 public class ApiUserPrincipal implements UserDetails {
     private Usuario usuario;
 
@@ -25,7 +29,6 @@ public class ApiUserPrincipal implements UserDetails {
     @Autowired
     UsuarioPermissaoRepository usuarioPermissaoRepository;
 
-    //TODO: Criar método para obter permissões
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 

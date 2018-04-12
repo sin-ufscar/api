@@ -6,6 +6,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+//TODO: Permitir que o usuário seja buscado em bases diferentes
+/**
+ * Classe responsável por buscar o usuário por memio do seu username
+ */
 @Service
 public class ApiUserDetailService implements UserDetailsService {
     @Autowired
