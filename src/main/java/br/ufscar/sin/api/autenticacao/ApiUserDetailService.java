@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 public class ApiUserDetailService implements UserDetailsService {
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private UsuarioPermissaoRepository usuarioPermissaoRepository;
 
     ApiUserDetailService() {
         super();
@@ -21,7 +23,7 @@ public class ApiUserDetailService implements UserDetailsService {
         if (usuario == null) {
             throw new UsernameNotFoundException(username);
         }
-        return new ApiUserPrincipal(usuario);
+        return new ApiUserPrincipal(usuario, usuarioPermissaoRepository);
     }
 }
 

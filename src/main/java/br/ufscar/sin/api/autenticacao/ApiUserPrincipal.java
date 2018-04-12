@@ -1,23 +1,41 @@
 package br.ufscar.sin.api.autenticacao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class ApiUserPrincipal implements UserDetails {
-        private Usuario usuario;
+    private Usuario usuario;
 
-        public ApiUserPrincipal(Usuario usuario) {
-            this.usuario = usuario;
-        }
+    public ApiUserPrincipal(Usuario usuario, UsuarioPermissaoRepository usuarioPermissaoRepository) {
+        this.usuario = usuario;
+        this.usuarioPermissaoRepository = usuarioPermissaoRepository;
+    }
+
+
+    @Autowired
+    UsuarioPermissaoRepository usuarioPermissaoRepository;
 
     //TODO: Criar método para obter permissões
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new ArrayList<SimpleGrantedAuthority>();
+
+        List<Permissao> permissoes = usuarioPermissaoRepository.findAllByUsuario(this.usuario).stream().
+                collect(ArrayList<Permissao>::new, (listaPermissoes, usuarioPermissao) -> {
+                    listaPermissoes.add(usuarioPermissao.permissao);
+                        }, (c,d) -> {}
+                );
+
+        return permissoes;
     }
 
     @Override
