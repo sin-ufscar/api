@@ -25,8 +25,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private DaoAuthenticationProvider authProvider;
 
-    @Autowired
-    private AuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Autowired
     ObjectMapper objectMapper;
